@@ -1,0 +1,37 @@
+.contactItem{
+
+    
+    
+}
+
+
+li {
+    text-align: center;
+    display: flex;
+    width: 260px;
+    justify-content: space-between;
+    
+    
+    
+    
+}
+
+ul {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+
+
+}
+
+
+li p {
+    padding-top: 3px;
+    padding-left: 2px;
+    border: 3px double white;
+    width: 220px;
+    text-align: start;
+    border-radius: 2px;
+    background-color: #f0f0f0;
+    
+}
