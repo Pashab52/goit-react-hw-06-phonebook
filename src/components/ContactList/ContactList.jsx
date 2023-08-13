@@ -20,8 +20,7 @@ export class ContactList extends Component {
               number={contact.number}
               key={contact.id}
               id={contact.id}
-              OnBtnDelClick={this.props.OnBtnDelClick}
-            />
+              />
           );
         })}
       </ul>
