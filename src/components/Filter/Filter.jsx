@@ -1,9 +1,18 @@
 
-import PropTypes from 'prop-types';
-import css from './Filter.module.css' 
-  
-export function Filter(props) {
+// import PropTypes from 'prop-types';
+import css from './Filter.module.css';
+import { getFilter } from 'redux/selectors';
+import { setFilter } from 'redux/contactsSlice';
+import { useSelector, useDispatch} from 'react-redux';
 
+  
+export function Filter() {
+const filterData = useSelector(getFilter)
+  const dispatch = useDispatch();
+
+  function handleFilterChange(event) {
+    dispatch(setFilter(event.currentTarget.value))
+  }
  
     return (
       <div className={css.filter}>
@@ -12,20 +21,20 @@ export function Filter(props) {
           <input
             type="text"
             name="name"
-            value={props.value}
-            onChange={event => props.onFilterChange(event.currentTarget.value)}
+            value={filterData}
+            onChange={handleFilterChange}
           />
         </label>
-             </div>
+      </div>
     );
   }
 
 
 
- Filter.propTypes = {
-    onFilterChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired,
-};
+//  Filter.propTypes = {
+//     onFilterChange: PropTypes.func.isRequired,
+//     value: PropTypes.string.isRequired,
+// };
   
 
 // import { Component } from 'react';

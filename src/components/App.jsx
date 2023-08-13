@@ -1,4 +1,4 @@
-import { useState} from "react";
+// import { useState} from "react";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
@@ -6,7 +6,7 @@ import { Filter } from "./Filter/Filter";
 import css from './App.module.css'
 import { useSelector } from 'react-redux';
 
-import { getContacts } from "redux/selectors";
+import { getContacts, getFilter } from "redux/selectors";
 
 
 // const defContacts = [
@@ -18,15 +18,15 @@ import { getContacts } from "redux/selectors";
 
 export function App() {
   // const [contacts, setContacts] = useState(defContacts);
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
 
   // const firstRender = useRef(true)
 
 // const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter)
     
 
-  
 // dispatch(addContact({ id: 123, title: 'Hello World' }));
 // console.log(addContact({ id: 123, title: 'Hello World' }));
 
@@ -69,11 +69,12 @@ export function App() {
   //   dispatch(addContact(copyNewContact));
   // };
 
-  const onFilterChange = filterWord => {
-    setFilter(filterWord);
-  };
+  // const onFilterChange = filterWord => {
+  //   setFilter(filterWord);
+  // };
 
   function filterContacts() {
+    
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
@@ -90,7 +91,7 @@ export function App() {
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
 
-      <Filter onFilterChange={onFilterChange} value={filter} />
+      <Filter/>
 
       <h2>Contacts</h2>
       {contacts.length > 0 && (
