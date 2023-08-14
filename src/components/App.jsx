@@ -6,7 +6,7 @@ import { Filter } from "./Filter/Filter";
 import css from './App.module.css'
 import { useSelector } from 'react-redux';
 
-import { getContacts, getFilter } from "redux/selectors";
+import { getContacts } from "redux/selectors";
 
 
 // const defContacts = [
@@ -24,7 +24,7 @@ export function App() {
 
 // const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter)
+
     
 
 // dispatch(addContact({ id: 123, title: 'Hello World' }));
@@ -73,13 +73,7 @@ export function App() {
   //   setFilter(filterWord);
   // };
 
-  function filterContacts() {
-    
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
-  }
+
 
   // const deleteContactData = id => {
   //   dispatch(deleteContact(id));
@@ -96,7 +90,7 @@ export function App() {
       <h2>Contacts</h2>
       {contacts.length > 0 && (
         <ContactList
-          contacts={filterContacts()}
+          // contacts={filterContacts()}
           // OnBtnDelClick={deleteContactData}
         />
       )}
